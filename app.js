@@ -14,22 +14,20 @@ app.get('/getCountryCode', (req, res) => {
     const longitude = req.query.long;
 
     if (!latitude || !longitude) {
-        res.status(400).send({
+        return res.status(400).send({
             code: 400,
             error: 'Latitude and longitude are required'
         });
-        return;
     }
 
     //get country code from lat and long
     const countryCode = countryCoder.iso1A2Code([longitude, latitude]);
 
     if (!countryCode) {
-        res.status(404).send({
+        return res.status(404).send({
             code: 404,
             error: 'Country code not found'
         });
-        return;
     }
 
     const response = {
@@ -37,8 +35,7 @@ app.get('/getCountryCode', (req, res) => {
         countryCode: countryCode
     }
 
-    res.send(response);
-    return;
+    return res.send(response);
 });
 
 app.listen(port, () => {
