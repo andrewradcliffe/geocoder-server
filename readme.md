@@ -6,6 +6,10 @@ A simple server built with Express to find country codes.
 
 Exposes an endpoint which takes in a longitude and latitude pair and returns the correct country code.
 
+### Credits
+
+Geocoding logic: https://github.com/rapideditor/country-coder
+
 ## Installation
 
 1. Clone the repository:
